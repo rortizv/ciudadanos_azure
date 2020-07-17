@@ -10,6 +10,9 @@ The app makes the CRUD tasks of a Census of citizens, who belong to a district, 
 
 The MVC controller view model is used.
 
+Here the database design: https://bit.ly/30nepLL
+
+Just download a copy, unzip and paste into your localhost or server folder, for example, in Wampserver, create a folder called "ciudadanos_sqlserver" and unzip there.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -22,3 +25,8 @@ La app es la solución a un proyecto de fin de semestre planteado para realizar 
 La app debe realizar las tareas de CRUD de un Censo de ciudadanos, los cuales pertenecen a un distrito, municipio, provincia.
 
 Se utiliza el modelo vista controlador MVC.
+
+Aquí el diseño de la base de datos: https://bit.ly/30nepLL
+
+Descarga una copia, descomprime y pega en tu carpeta de localhost o de tu servidor, por ejemplo, en Wampserver, crea una carpeta llamada "ciudadanos_sqlserver" y descomprime allí.
+
