@@ -12,7 +12,7 @@ class MunicipioModel
 			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch (PDOException $e) {
-			print("Error connecting to SQL Server.");
+			print("Error connecting to Azure SQL.");
 			die(print_r($e));
 		}
 	}

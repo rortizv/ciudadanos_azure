@@ -10,7 +10,7 @@ class DistritoModel
 			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch (PDOException $e) {
-			print("Error connecting to SQL Server.");
+			print("Error connecting to Azure SQL.");
 			die(print_r($e));
 		}
 	}
@@ -21,7 +21,7 @@ class DistritoModel
 		{
 			$result = array();
 			
-			$stm = $this->pdo->prepare("SELECT 	distri.cod_distrito,distri.nombre_distrito,muni.nombre_municipio,
+			$stm = $this->pdo->prepare("SELECT 																			distri.cod_distrito,distri.nombre_distrito,muni.nombre_municipio,
 									provi.nombre_provincia
 									FROM municipio muni
 									INNER JOIN provincia provi 

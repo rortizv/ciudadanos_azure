@@ -6,9 +6,9 @@ class Persona
 	private $apellidos;
  	private $fecha_nacimiento;
  	private $tipo_doc;
- 	private $lugar_nacimiento;
 	private $edad;
 	private $estatura;
+	private $lugar_nacimiento;
  	private $situacion_militar;
  	private $sexo;
  	private $nivel_de_estudios;
