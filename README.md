@@ -2,7 +2,7 @@
 
 
 
-Conteo Ciudadano is an app developed in PHP that connects to a SQL Server database.
+Conteo Ciudadano is an app developed in PHP that connects to an Azure SQL database.
 
 The app is the solution to an end-of-semester project proposed to in Data Bases II subject at Software Engineering program of the University of Cartagena.
 
@@ -15,7 +15,7 @@ The MVC controller view model is used.
 ------------------------------------------------------------------------------------------------------------------------------------
 
 
-Conteo Ciudadano es una app realizada en PHP que se conecta con una base de datos de SQL Server.
+Conteo Ciudadano es una app realizada en PHP que se conecta con una base de datos de Azure SQL en la nube.
 
 La app es la solución a un proyecto de fin de semestre planteado para realizar en la asignatura Bases de Datos II, programa de Ingeniería de Software de la Universidad de Cartagena.
 
