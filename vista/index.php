@@ -78,4 +78,3 @@ $model = new ProvinciaModel();
 
  </script>
 </html>
-

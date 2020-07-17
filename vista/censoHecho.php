@@ -71,6 +71,7 @@ if(isset($_REQUEST['action']))
             <div class="form-group mb-2">
                 <label for="staticEmail2">Pais residencia: </label>
             </div>
+       
             <div class="form-group mx-sm-3 mb-2">
                 <input name="pais_residencia" type="text" class="form-control" id="pais_residencia"
                     aria-describedby=" " value="<?php echo $alm->__GET('pais_residencia'); ?>">
