@@ -15,19 +15,94 @@ class DistritoModel
 		}
 	}
 
+	public function ListMunicipio(){
+		$sql=("SELECT * FROM municipio");
+		try{
+				$resultado=array();
+				$consulta=$this->pdo->prepare("SELECT * FROM municipio");
+				$consulta->execute();
+
+				foreach($consulta->fetchAll(PDO::FETCH_OBJ) as $datosConsulta)
+				{
+					$almacenado = new Distrito();
+
+					$almacenado->__SET('cod_municipio', $datosConsulta->cod_municipio);
+					$almacenado->__SET('nombre_municipio', $datosConsulta->nombre_municipio);
+
+					$resultado[] = $almacenado;
+				}
+			return $resultado;
+			}
+			catch(Exception $e)
+			{
+				die($e->getMessage());
+			}
+			
+	}
+	public function ListarProvincia(){
+		$sql=("SELECT * FROM censo_derecho");
+		try{
+				$resultado=array();
+				$consulta=$this->pdo->prepare("SELECT * FROM censo_derecho");
+				$consulta->execute();
+
+				foreach($consulta->fetchAll(PDO::FETCH_OBJ) as $datosConsulta)
+				{
+					$almacenado = new Distrito();
+
+					$almacenado->__SET('id_censo_derecho', $datosConsulta->id_censo_derecho);
+					//$almacenado->__SET('cod_provincia', $datosConsulta->cod_provincia);
+
+					$resultado[] = $almacenado;
+				}
+			return $resultado;
+			}
+			catch(Exception $e)
+			{
+				die($e->getMessage());
+			}
+			
+	}
+
+
+	public function ListarDerecho(){
+		$sql=("SELECT * FROM censo_hecho");
+		try{
+				$resultado=array();
+				$consulta=$this->pdo->prepare("SELECT * FROM censo_hecho");
+				$consulta->execute();
+
+				foreach($consulta->fetchAll(PDO::FETCH_OBJ) as $datosConsulta)
+				{
+					$alm_municipio = new Distrito();
+
+					$alm_municipio->__SET('id_censo_hecho', $datosConsulta->id_censo_hecho);
+					//$alm_municipio->__SET('cod_municipio', $datosConsulta->cod_municipio);
+
+					$resultado[] = $alm_municipio;
+				}
+			return $resultado;
+			}
+			catch(Exception $e)
+			{
+				die($e->getMessage());
+			}
+			
+	}
+
 	public function Listar()
 	{
 		try
 		{
 			$result = array();
 			
-			$stm = $this->pdo->prepare("SELECT 																			distri.cod_distrito,distri.nombre_distrito,muni.nombre_municipio,
-									provi.nombre_provincia
-									FROM municipio muni
-									INNER JOIN provincia provi 
-									ON muni.fk_cod_provincia=muni.fk_cod_provincia
-									INNER JOIN distrito distri 
-									ON distri.fk_cod_municipio=muni.cod_municipio");
+			$stm = $this->pdo->prepare("SELECT distri.cod_distrito,distri.nombre_distrito,provi.nombre_provincia,
+										muni.nombre_municipio 
+										FROM 	municipio as muni
+										inner join provincia as provi 
+										ON muni.fk_cod_provincia=provi.cod_provincia
+										inner join distrito  as distri 
+										ON muni.cod_municipio=distri.fk_cod_municipio");
 
 		 	$stm->execute();
 		 	
@@ -111,14 +186,15 @@ class DistritoModel
 	{
 		try 
 		{
-		$sql = "INSERT INTO distrito (nombre_distrito,cod_distrito,fk_cod_provincia) 
-		        VALUES (?,?,?)";
+		$sql = "INSERT INTO distrito (nombre_distrito,fk_cod_municipio,fk_id_censo_hecho,fk_id_censo_derecho) 
+		        VALUES (?,?,?,?)";
 		$this->pdo->prepare($sql)
 		     ->execute(
 			array(
-				$data->__GET('nombre_municipio'),
-				$data->__GET('cod_distrito'),
-				$data->__GET('fk_cod_provincia')
+				$data->__GET('nombre_distrito'),
+				$data->__GET('fk_cod_municipio'),
+				$data->__GET('fk_id_censo_hecho'),
+				$data->__GET('fk_id_censo_derecho')
 				)
 			);
 		} catch (Exception $e) 
